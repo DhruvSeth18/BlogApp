@@ -1,9 +1,14 @@
-import * as React from 'react';
+import React,{useContext} from 'react';
 import {AppBar,Toolbar,styled,Box,Drawer} from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import './navbar.css';
+import LoginButton from './loginSection';
+import { NavLink } from 'react-router-dom';
+import { DataContext } from '../context/dataContext';
+
 const drawerWidth = 240;
+import './navbar.css';
+
 
 const EditToolbar = styled(Toolbar)`
     width: 100%;
@@ -15,6 +20,7 @@ const EditToolbar = styled(Toolbar)`
 const Navbar = () => {
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const [isClosing, setIsClosing] = React.useState(false);
+    const {account} = useContext(DataContext);
 
     const handleDrawerClose = () => {
         setIsClosing(true);
@@ -38,7 +44,14 @@ const Navbar = () => {
                         <IconButton color="inherit" aria-label="open drawer" edge="start" onClick={handleDrawerToggle} sx={{ display: { sm: 'none' } ,position:'absolute',left:'5vh',scale:'1.4'}} >
                             <MenuIcon />
                         </IconButton>
-                        <button style={{position:'absolute',right:'30px'}} className="btn">LOGIN</button>
+                        <div className='w-[50%] hidden sm:flex justify-around'>
+                            <NavLink to={'/intro'}>Intro</NavLink>
+                            <NavLink to={'/about'}>About</NavLink>
+                            <NavLink to={'/contact'}>Contact</NavLink>
+                            <NavLink to={'/service'}>Service</NavLink>
+                            {account && <NavLink to={'/blog'}>Blog</NavLink>}
+                        </div>
+                        <LoginButton/>
                     </EditToolbar>
                 </AppBar>
                 <Box component="nav" sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 }}} aria-label="mailbox folders">

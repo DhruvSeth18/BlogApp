@@ -1,11 +1,11 @@
-import Navbar from './components/navbar/navbar';
-import Signin from './components/signin/signin';
-import Login from './components/login/login';
+import Home from './Home';
+import DataProvider from './components/context/dataContext';
+
 const App = ()=>{
   return (<>
-    <Navbar/>
-    {/* <Login/> */}
-    <Signin/>
+    <DataProvider>
+      <Home/>
+    </DataProvider>
   </>)
 }
 export default App;

@@ -1,10 +1,14 @@
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import MailIcon from '@mui/icons-material/Mail';
 import VisibilityIcon from '@mui/icons-material/Visibility';
-import { useState } from "react";
-import './login.css';
+import { useState,useContext } from "react";
 import Cartoon from './cartoon.png';
 import Google from './images.png';
+import {LoginUser} from '../api/api.js';
+import { DataContext } from '../context/dataContext.jsx';
+import {useNavigate} from 'react-router-dom';
+
+import './login.css';
 
 
 const loginForm = {
@@ -15,6 +19,8 @@ const loginForm = {
 const Login = () => {
     const [passVisible, setPassVisible] = useState(false);
     const [login,setLogin] = useState(loginForm);
+    const {setAccount} = useContext(DataContext);
+    const navigate = useNavigate();
 
     const togglePassVisible = () => {
         setPassVisible(!passVisible);
@@ -24,6 +30,20 @@ const Login = () => {
         console.log(login);
     }
 
+=======
+    const Loginuser = async ()=>{
+        const response = await LoginUser(login);
+        console.log(response);
+        if(response.status && response.status==200){
+            setAccount(true);
+            localStorage.setItem('token',response.token);
+            localStorage.setItem('userId',response.id);
+            localStorage.setItem('userImage',response.image);
+            localStorage.setItem('userEmail',response.email);
+            navigate('/intro');
+            console.log("Login Successfull");
+        }
+    }
     return (
         <>
             <div className="h-screen flex justify-center items-center bg-white">
@@ -33,7 +53,7 @@ const Login = () => {
                         <div className="w-full h-[110px] flex justify-center items-center">
                             <p className="font-bold text-5xl ">Login</p>
                         </div>
-                        {/* Email Login Form  */}
+                        {/* Email Logindiv*/}
                         <div>
                             <label for="first_name" class="block font-medium mb-1 text-md">Email</label>
                             <div class="relative mb-4">
@@ -59,7 +79,7 @@ const Login = () => {
                         </div>
                         {/* Button Login */}
                         <div className="flex justify-center mb-3">
-                            <button className="border-2 w-full text-center text-white bg-black text-xl p-1 font-bold rounded-md hover:text-black hover:bg-white hover:border-black" type="submit">Login</button>
+                            <button onClick={Loginuser} className="border-2 w-full text-center text-white bg-black text-xl p-1 font-bold rounded-md hover:text-black hover:bg-white hover:border-black" type="submit">Login</button>
                         </div>
                         {/* Login with Google    */}
                         <div className="flex w-full justify-center">
