@@ -29,6 +29,8 @@ const Login = () => {
         setLogin({...login,[e.target.name]:e.target.value})
         console.log(login);
     }
+
+=======
     const Loginuser = async ()=>{
         const response = await LoginUser(login);
         console.log(response);
