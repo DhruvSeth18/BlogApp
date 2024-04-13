@@ -1,4 +1,6 @@
-
+.active{
+    color: orange;
+}
 .btn {
     --border-color: linear-gradient(150deg, cyan, orange);
     --border-width: 0.17em;
