@@ -11,6 +11,7 @@ const loginForm = {
     email:'',
     password:''
 }
+
 const Login = () => {
     const [passVisible, setPassVisible] = useState(false);
     const [login,setLogin] = useState(loginForm);
@@ -22,11 +23,12 @@ const Login = () => {
         setLogin({...login,[e.target.name]:e.target.value})
         console.log(login);
     }
+
     return (
         <>
             <div className="h-screen flex justify-center items-center bg-white">
                 <div className="h-[450px] w-[95%] xl:w-[45%] lg:w-[55%] md:w-[70%] sm:w-[90%] flex bg-white p-4 rounded-md">
-                    <form className='flex flex-col flex-1'>
+                    <div className='flex flex-col flex-1'>
                         {/* lOGIN Title */}
                         <div className="w-full h-[110px] flex justify-center items-center">
                             <p className="font-bold text-5xl ">Login</p>
@@ -66,7 +68,7 @@ const Login = () => {
                                 <p className="flex h-full items-center font-bold">Login with Google</p>
                             </button>
                         </div>
-                    </form>
+                    </div>
                     {/* Johny Test Logo */}
                     <div className="hidden sm:block flex-1/2">
                         <img className="w-full h-full" src={Cartoon} alt="" />
