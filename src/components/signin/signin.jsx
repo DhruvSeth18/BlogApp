@@ -6,12 +6,8 @@ import { useState } from "react";
 import './sign.css';
 import Cartoon from './cartoon.png';
 import Google from './images.png';
-const signin={
-    username:"",
-    email:"",
-    pass:"",
-    repass:""
-}
+
+const signin={}
 
 const Signin=()=>{
     const [passVisible,setPassVisible]=useState(false);
@@ -63,7 +59,7 @@ const Signin=()=>{
                                 <div class="absolute inset-y-0 start-0 flex items-center ps-2 cursor-pointer" onClick={togglePassVisible}>
                                     {passVisible ? <VisibilityIcon className="text-gray-500" /> : <VisibilityOffIcon className="text-gray-500" />}
                                 </div>
-                                <input type={passVisible ? 'text' : 'password'} onChange={(e)=>{onInputChange(e)}} name='pass' id="input-group-1" className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none block w-full ps-10 p-2.5  " placeholder="Enter Password" required />
+                                <input type={passVisible ? 'text' : 'password'} onChange={(e)=>{onInputChange(e)}} name='password' id="input-group-1" className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none block w-full ps-10 p-2.5  " placeholder="Enter Password" required />
                             </div>
                         </div>
                         {/* confirm password Login FOrm  */}
@@ -73,7 +69,7 @@ const Signin=()=>{
                                 <div class="absolute inset-y-0 start-0 flex items-center ps-2 cursor-pointer" onClick={togglePassVisible}>
                                     {passVisible ? <VisibilityIcon className="text-gray-500" /> : <VisibilityOffIcon className="text-gray-500" />}
                                 </div>
-                                <input type={passVisible ? 'text' : 'password'} onChange={(e)=>{onInputChange(e)}} name='repass' id="input-group-1" className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none block w-full ps-10 p-2.5  " placeholder="Enter Password" required />
+                                <input type={passVisible ? 'text' : 'password'} onChange={(e)=>{onInputChange(e)}} name='repassword' id="input-group-1" className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none block w-full ps-10 p-2.5  " placeholder="Enter Password" required />
                             </div>
                         </div>
                         {/* Forgot password */}

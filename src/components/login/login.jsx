@@ -30,8 +30,7 @@ const Login = () => {
         console.log(login);
     }
 
-=======
-    const Loginuser = async ()=>{
+const Loginuser = async ()=>{
         const response = await LoginUser(login);
         console.log(response);
         if(response.status && response.status==200){

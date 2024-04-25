@@ -45,11 +45,11 @@ const Navbar = () => {
                             <MenuIcon />
                         </IconButton>
                         <div className='w-[50%] hidden sm:flex justify-around'>
-                            <NavLink to={'/intro'}>Intro</NavLink>
-                            <NavLink to={'/about'}>About</NavLink>
-                            <NavLink to={'/contact'}>Contact</NavLink>
-                            <NavLink to={'/service'}>Service</NavLink>
-                            {account && <NavLink to={'/blog'}>Blog</NavLink>}
+                            <NavLink style={{fontSize:"20px"}} to={'/intro'}>Intro</NavLink>
+                            <NavLink style={{fontSize:"20px"}} to={'/about'}>About</NavLink>
+                            <NavLink style={{fontSize:"20px"}} to={'/contact'}>Contact</NavLink>
+                            <NavLink style={{fontSize:"20px"}} to={'/service'}>Service</NavLink>
+                            {account && <NavLink style={{fontSize:"20px"}} to={'/blog'}>Blog</NavLink>}
                         </div>
                         <LoginButton/>
                     </EditToolbar>
