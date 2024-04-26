@@ -20,20 +20,21 @@ const StyledMenu = styled((props) => (
 
 const LoginButton = ()=>{
     const {account,setAccount} = useContext(DataContext);
-    const [anchorEl, setAnchorEl] = React.useState(null);
+
     useEffect(()=>{
         if(localStorage.getItem("userId")){
             console.log(localStorage.getItem("userId"));
             setAccount(true);
         }
     },[account]);
-
+    
+    const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
     };
 
     const navigate = useNavigate();

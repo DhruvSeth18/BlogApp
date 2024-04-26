@@ -7,6 +7,8 @@ import Google from './images.png';
 import {LoginUser} from '../api/api.js';
 import { DataContext } from '../context/dataContext.jsx';
 import {useNavigate} from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; 
 
 import './login.css';
 
@@ -21,7 +23,19 @@ const Login = () => {
     const [login,setLogin] = useState(loginForm);
     const {setAccount} = useContext(DataContext);
     const navigate = useNavigate();
-
+    
+    const toastSuccess = ()=>{
+        toast.success("User Login Successfull",{
+            position:'top-center',
+            className:"toast"
+        });
+    }
+    const toastFail = (message)=>{
+        toast.error(message,{
+            position:'top-center',
+            className:"toast"
+        });
+    }
     const togglePassVisible = () => {
         setPassVisible(!passVisible);
     }
@@ -33,28 +47,35 @@ const Login = () => {
 const Loginuser = async ()=>{
         const response = await LoginUser(login);
         console.log(response);
-        if(response.status && response.status==200){
-            setAccount(true);
-            localStorage.setItem('token',response.token);
-            localStorage.setItem('userId',response.id);
-            localStorage.setItem('userImage',response.image);
-            localStorage.setItem('userEmail',response.email);
-            navigate('/intro');
+        if(response.status && response.status=='success'){
+            toastSuccess();
+            setTimeout(()=>{
+                console.log("Navigation to intro");
+                setAccount(true);
+                localStorage.setItem('token',response.token);
+                localStorage.setItem('userId',response.id);
+                localStorage.setItem('userImage',response.image);
+                localStorage.setItem('userEmail',response.email);
+                navigate('/intro');
+            },2000)
             console.log("Login Successfull");
+        } else if(response.status && response.status==='fail'){
+            toastFail(response.message);
         }
     }
     return (
         <>
-            <div className="h-screen flex justify-center items-center bg-white">
-                <div className="h-[450px] w-[95%] xl:w-[45%] lg:w-[55%] md:w-[70%] sm:w-[90%] flex bg-white p-4 rounded-md">
+            <ToastContainer style={{scale:'0.95',paddingTop:'60px'}}/>
+            <div className="h-screen flex justify-center items-center bg-#191919">
+                <div className="h-[450px] w-[95%] xl:w-[45%] lg:w-[55%] md:w-[70%] sm:w-[90%] flex bg-#191919 p-4 rounded-md">
                     <div className='flex flex-col flex-1'>
                         {/* lOGIN Title */}
                         <div className="w-full h-[110px] flex justify-center items-center">
-                            <p className="font-bold text-5xl ">Login</p>
+                            <p className="font-bold text-5xl text-white">Login</p>
                         </div>
                         {/* Email Logindiv*/}
                         <div>
-                            <label for="first_name" class="block font-medium mb-1 text-md">Email</label>
+                            <label for="first_name" class="block font-medium text-md">Email</label>
                             <div class="relative mb-4">
                                 <div class="absolute inset-y-0 start-0 flex items-center ps-2 cursor-pointer">
                                     <MailIcon className="text-gray-500" />
@@ -65,7 +86,7 @@ const Loginuser = async ()=>{
                         {/* password Login FOrm  */}
                         <div>
                             <label for="first_name" class="block mb-1 text-sm font-medium ">Password</label>
-                            <div class="relative mb-2">
+                            <div class="relative mb-4">
                                 <div class="absolute inset-y-0 start-0 flex items-center ps-2 cursor-pointer" onClick={togglePassVisible}>
                                     {passVisible ? <VisibilityIcon className="text-gray-500" /> : <VisibilityOffIcon className="text-gray-500" />}
                                 </div>
@@ -73,8 +94,9 @@ const Loginuser = async ()=>{
                             </div>
                         </div>
                         {/* Forgot password */}
-                        <div className="flex w-full justify-end mb-3">
-                            <p className="text-blue-500 cursor-pointer">Forgot Password ?</p>
+                        <div className="flex w-full justify-between mb-3">
+                            <p  onClick={()=>navigate('/signin')} className="text-white cursor-pointer pt-2 pb-2 ">Create an Account ?</p>
+                            <p className="text-blue-500 cursor-pointer pt-2 pb-2 ">Forgot Password ?</p>
                         </div>
                         {/* Button Login */}
                         <div className="flex justify-center mb-3">
@@ -82,9 +104,9 @@ const Loginuser = async ()=>{
                         </div>
                         {/* Login with Google    */}
                         <div className="flex w-full justify-center">
-                            <button className="w-full h-[35px] border-2 border-black justify-center flex gap-4 rounded-md">
+                            <button className="w-full h-[35px] border-2 border-black justify-center bg-white flex gap-4 rounded-md">
                                 <img className=" h-full " src={Google} alt="google image" />
-                                <p className="flex h-full items-center font-bold">Login with Google</p>
+                                <p className="flex h-full items-center font-bold ">Login with Google</p>
                             </button>
                         </div>
                     </div>

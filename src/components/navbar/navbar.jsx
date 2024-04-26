@@ -49,7 +49,7 @@ const Navbar = () => {
                             <NavLink style={{fontSize:"20px"}} to={'/about'}>About</NavLink>
                             <NavLink style={{fontSize:"20px"}} to={'/contact'}>Contact</NavLink>
                             <NavLink style={{fontSize:"20px"}} to={'/service'}>Service</NavLink>
-                            {account && <NavLink style={{fontSize:"20px"}} to={'/blog'}>Blog</NavLink>}
+                            {account && <NavLink style={{fontSize:"20px"}} to={'/blogs'}>Blog</NavLink>}
                         </div>
                         <LoginButton/>
                     </EditToolbar>

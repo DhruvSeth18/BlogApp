@@ -3,7 +3,7 @@ import Login from './components/login/login';
 import {BrowserRouter,Routes,Route,Outlet,Navigate} from 'react-router-dom';
 import Intro from './components/Intro/intro';
 import SignIn from './components/signin/signin';
-
+import Blog from './components/Blog/blog';
 const PrivateRouteBlog = ()=>{
     return localStorage.getItem("userId") ?
     <>
@@ -30,6 +30,9 @@ const Home = ()=>{
                 <Route element={<PrivateRoute/>} >
                     <Route path='/login' element={<Login/>} />
                     <Route path='/signin' element={<SignIn/>} />
+                </Route>
+                <Route element={<PrivateRouteBlog/>} >
+                    <Route path='/blogs' element={<Blog/>} />
                 </Route>
                 <Route path='*' element={<Navigate replace to="/intro"/>}  />
             </Routes>

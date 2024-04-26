@@ -11,6 +11,14 @@
 body{
   background-color: #191919;
 }
+.toast{
+  font-weight: bold;
+  border: 1px solid grey;
+}
+.toast div{
+  display: flex;
+  gap:20px;
+}
 
 ::selection{
   background-color: rgba(105, 255, 105, 0.692);
