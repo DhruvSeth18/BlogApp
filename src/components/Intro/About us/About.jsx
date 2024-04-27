@@ -1,9 +1,11 @@
 import React from 'react'
-import imgb from './right.jpeg';
+import deepankar from './images/Deep1.jpeg';
+import deepankar2 from './images/Deep2.jpeg';
 import './about.css';
-import { FaFacebook } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
+import Team from './Team';
+import Contact from '../ContactUs/Contact';
+import Aboutcom from './Aboutcom.jsx';
+import Footer from '../Footer/Footer.jsx';
 const About = () => {
   return (
     <>
@@ -11,50 +13,17 @@ const About = () => {
             <h1>Community Experts</h1>
             <p>Replenish man have thing gathering lights yieding shall you</p>
             <div className="expert-box">
-                <div className="profile">
-                    <img src={imgb} alt=""/>
-                    <h6>Ema Irnik</h6>
-                    <p>Python & Algorithm Expert</p>
-                    <div className="pro-links">
-                        <FaFacebook className='i'/>
-                        <FaInstagram className='i'/>
-                        <FaLinkedin className='i'/>
-                    </div>
-                </div>
-                <div className="profile">
-                    <img src={imgb} alt=""/>
-                    <h6>Jason</h6>
-                    <p>Data Analysis Expert</p>
-                    <div className="pro-links">
-                        <FaFacebook className='i'/>
-                        <FaInstagram className='i'/>
-                        <FaLinkedin className='i'/>
-                    </div>
-                </div>
-                <div className="profile">
-                    <img src={imgb} alt=""/>
-                    <h6>Maalik</h6>
-                    <p>Full Stack Developer</p>
-                    <div className="pro-links">
-                        <FaFacebook className='i'/>
-                        <FaInstagram className='i'/>
-                        <FaLinkedin className='i'/>
-                    </div>
-                </div>
-                <div className="profile">
-                    <img src={imgb} alt=""/>
-                    <h6>Jennifer</h6>
-                    <p>Design Expert</p>
-                    <div className="pro-links">
-                        <FaFacebook className='i'/>
-                        <FaInstagram className='i'/>
-                        <FaLinkedin className='i'/>
-                    </div>
-                </div>
+                <Team imgsrc={deepankar2} name={"Dhruv Seth"} help={"Full-Stack Developer"}/>
+                <Team imgsrc={deepankar} name={"Deepankar Garg"} help={"Frontend Developer"}/>
+                <Team imgsrc={deepankar} name={"Dev Bhatia"} help={"DSA & Frontend"}/>
+                <Team imgsrc={deepankar2} name={"Dishant"} help={"Frontend"}/>
             </div>
         </section>
+        <Aboutcom/>
+        <Contact/>
+        <Footer/>
     </>
   )
 }
 
-export default About
+export default About;

@@ -1,42 +1,57 @@
 
 /* -------------Experts-------- */
-
+#experts h6 {
+    font-weight: 700;
+    font-weight: bold;
+    font-size: 1.5rem ;
+}
 #experts{
-    padding: 4vw 6vw;
+    padding: 6vw 6vw;
     text-align: center;
     background-color: #fff;
-  }
-  #experts h1 {
+}
+#experts h1 {
     font-size: 50px;
     line-height: 64px;
     color: rgb(24,24,49);
 }
-  #experts .expert-box{
+#experts .expert-box{
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
     grid-gap: 1rem;
     margin-top: 50px;
-  }
-  #experts .expert-box .profile{
+}
+#experts .expert-box .profile {
     background-color: #fafaf1;
     padding: 30px 10px;
-  }
-  .pro-links{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+#experts .expert-box .profile img{
+    border-radius: 50%;
+    height: 25vh;
+    width: 70%;
+    object-fit:cover;
+}
+.pro-links{
     margin-top: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
-  }
-  .pro-links .i{
+}
+.pro-links .i{
     font-size: 3rem;
     padding: 0.5rem;
     border: 1px solid rgb(21, 21, 100);
     cursor: pointer;
     transition: all 0.5s ease;
-  }
-  .pro-links .i:hover{
+}
+.pro-links .i:hover{
     background-color: rgb(21, 21, 100);
     color: #fff;
-  }
+}
   

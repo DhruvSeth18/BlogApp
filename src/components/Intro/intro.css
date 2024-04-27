@@ -112,19 +112,32 @@
     .biggy {
         padding: 0rem 0 0 0 ;
         justify-content:center;
+        height: 100vh;
+    }
+    .left p {
+        font-size: 1.1rem/* 20px */;
+        line-height: 1.55rem/* 28px */;
+        letter-spacing: 0rem/* 1.6px */;
+        padding-top: 0.5rem/* 16px */;
+        padding-bottom: 1rem/* 16px */;
+    }
+    .button2 {
+        margin: 0rem;
+        font-size: 17px;
+        font-weight: 600;
     }
     .left{width: 85%;}
     .left h1 {
-        font-size: 3.5rem;
-        letter-spacing: 0.2rem;
-        padding: 0.5rem 0;
+        font-size: 2.5rem;
+        letter-spacing: 0rem;
+        padding: 5rem 0 0 0 ;
         line-height: 4rem;
         text-align: center;
     }
     .left span{
         display: flex;
         justify-content: center;
-        padding: 2rem 0;
+        padding: 1rem 0;
     }
 }
 @media (min-width:600px ) and ( max-width: 1200px) {
