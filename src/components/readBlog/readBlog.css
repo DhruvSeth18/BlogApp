@@ -1,0 +1,19 @@
+.blogPage blockquote{
+    font-size: 30px;
+    border-left: 4px solid white;
+    background-color: rgba(75, 75, 75, 0.397);
+    padding-left: 10px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+.blogPage p{
+    font-size: 18px;
+    text-align: justify;
+}
+.blogPage pre{
+    background-color: #160736;
+    overflow: auto;
+    font-weight: bold;
+    font-size:15px;
+    padding: 20px;
+}

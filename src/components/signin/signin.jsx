@@ -68,8 +68,8 @@ const Signin=()=>{
                         </div>
                         {/* Username */}
                         <div>
-                            <div class="relative mb-6">
-                                <div class="absolute inset-y-0 start-0 flex items-center ps-2 cursor-pointer">
+                            <div className="relative mb-6">
+                                <div className="absolute inset-y-0 start-0 flex items-center ps-2 cursor-pointer">
                                     <FaUser className="text-gray-500" />
                                 </div>
                                 <input type="text" value={signdetail.username} onChange={(e)=>{onInputChange(e)}} name='username' id="input-group-1" className=" border border-gray-300 text-sm rounded-lg focus:outline-none block w-full ps-10 p-2.5 " placeholder="Enter Username" required />
@@ -77,8 +77,8 @@ const Signin=()=>{
                         </div>
                         {/* Email Login Form  */}
                         <div>
-                            <div class="relative mb-6">
-                                <div class="absolute inset-y-0 start-0 flex items-center ps-2 cursor-pointer">
+                            <div className="relative mb-6">
+                                <div className="absolute inset-y-0 start-0 flex items-center ps-2 cursor-pointer">
                                     <MailIcon className="text-gray-500" />
                                 </div>
                                 <input type="email" value={signdetail.email} onChange={(e)=>{onInputChange(e)}} name='email' id="input-group-1" className=" border border-gray-300 text-sm rounded-lg focus:outline-none block w-full ps-10 p-2.5 " placeholder="Enter Email" required />
@@ -86,8 +86,8 @@ const Signin=()=>{
                         </div>
                         {/* password Login FOrm  */}
                         <div>   
-                            <div class="relative mb-2"> 
-                                <div class="absolute inset-y-0 start-0 flex items-center ps-2 cursor-pointer" onClick={togglePassVisible}>
+                            <div className="relative mb-2"> 
+                                <div className="absolute inset-y-0 start-0 flex items-center ps-2 cursor-pointer" onClick={togglePassVisible}>
                                     {passVisible ? <VisibilityIcon className="text-gray-500" /> : <VisibilityOffIcon className="text-gray-500" />}
                                 </div>
                                 <input type={passVisible ? 'text' : 'password'} value={signdetail.password} onChange={(e)=>{onInputChange(e)}} name='password' id="input-group-1" className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none block w-full ps-10 p-2.5  " placeholder="Enter Password" required />

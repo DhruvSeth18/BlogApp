@@ -3,41 +3,63 @@ import { useState } from 'react';
 import { FaShareAlt } from "react-icons/fa";
 import { AiFillHeart } from "react-icons/ai";
 import { AiOutlineHeart } from "react-icons/ai";
+import { useNavigate } from 'react-router-dom';
+import { IoBookmark } from "react-icons/io5";
+import { IoBookmarkOutline } from "react-icons/io5";
 
 const Blogcard = ({ item }) => {
     const [like, setLike] = useState(false);
     const [share, setShare] = useState(false);
-    console.log("hello from Card",item);
+    const [bookmark, setBookMark] = useState(false);
+    const navigate = useNavigate();
+    const openBlogPage= ()=>{
+        navigate(`/blog/${item._id}`);
+    }
     return (
-        <Card maxW='md'sx={{borderRadius:'7px'}} className='min-w-[300px] max-w-[300px] relative h-[390px] text-black border-2 bg-white'>
-            <p className='m-2'>{item.category}</p>
-            <div className='flex justify-center'>
-                <img
-                    className='w-[100%] h-[160px] rounded-lg'
-                    src={item.image}
-                />
-            </div>
-            <div className='m-2 text-justify'>
-                <p className='text-[22px] mb-1'>Education is Important</p>
-                <p className='text-[14px]'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum debitis ducimus exercitationem iure assumenda possimus?&nbsp;....</p>
-            </div>
-            <div className='flex justify-around w-[70px] absolute bottom-3 left-[7px]'>
-                {like ? (
-                    <AiFillHeart
-                        onClick={() => setLike(!like)}
-                        className='text-[30px] active:scale-75 text-red-500 cursor-pointer'
+        <Card sx={{borderRadius:'7px'}} className='min-w-[300px] max-w-[350px] relative h-[400px] text-black border-2 bg-white'>
+            <div onClick={openBlogPage} className='cursor-pointer'>
+                <p className='m-2'>{item.category}</p>
+                <div className='flex justify-center'>
+                    <img className='w-[100%] h-[160px] rounded-lg ml-3 mr-3 border-2'
+                        src={item.image}
                     />
-                ) : (
-                    <AiOutlineHeart
-                        onClick={() => setLike(!like)}
-                        className='text-[30px] active:scale-75 cursor-pointer'
-                    />
-                )}
-                <FaShareAlt
-                    onClick={() => setShare(!share)}
-                    className={`text-[25px] relative mt-[2px] cursor-pointer ${share ? 'text-blue-500' : ''}`}
-                />
+                </div>
+                <div className='m-2 mt-2'>
+                    <p className='text-[19px] h-[60px] mb-1 overflow-hidden'>{item.title}</p>
+                    <p className='text-[14px]'>{item.description.substring(0, 120)}?&nbsp;....</p>
+                </div>
             </div>
+                <div className='flex justify-around w-[70px] absolute bottom-3 left-[7px]'>
+                    {like ? (
+                        <AiFillHeart
+                            onClick={() => setLike(!like)}
+                            className='text-[30px] active:scale-75 text-red-500 cursor-pointer'
+                        />
+                    ) : (
+                        <AiOutlineHeart
+                            onClick={() => setLike(!like)}
+                            className='text-[30px] active:scale-75 cursor-pointer'
+                        />
+                    )}
+                    <FaShareAlt
+                        onClick={() => setShare(!share)}
+                        className={`text-[25px] relative mt-[2px] cursor-pointer ${share ? 'text-blue-500' : ''}`}
+                    />
+                    
+                </div>
+                <div className='absolute bottom-[45px] right-2'>
+                    {bookmark ? (
+                        <IoBookmark
+                            onClick={() => setBookMark(!bookmark)}
+                            className='text-[32px] active:scale-75 text-red-500 cursor-pointer absolute right-1'
+                        />
+                    ) : (
+                        <IoBookmarkOutline
+                            onClick={() => setBookMark(!bookmark)}
+                            className='text-[32px] active:scale-75 cursor-pointer absolute right-1'
+                        />
+                    )}
+                </div>
         </Card>
     )
 }

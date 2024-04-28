@@ -75,19 +75,19 @@ const Loginuser = async ()=>{
                         </div>
                         {/* Email Logindiv*/}
                         <div>
-                            <label for="first_name" class="block font-medium text-md">Email</label>
-                            <div class="relative mb-4">
-                                <div class="absolute inset-y-0 start-0 flex items-center ps-2 cursor-pointer">
+                            <label for="first_name" className="block font-medium text-md">Email</label>
+                            <div className="relative mb-4">
+                                <div className="absolute inset-y-0 start-0 flex items-center ps-2 cursor-pointer">
                                     <MailIcon className="text-gray-500" />
                                 </div>
-                                <input type="email" onChange={(e)=>{onInputChange(e)}} name='email' id="input-group-1" className=" border border-gray-300 text-sm rounded-lg focus:outline-none block w-full ps-10 p-2.5 " placeholder="Enter Username" required />
+                                <input type="email" onChange={(e)=>{onInputChange(e)}} name='email' id="input-group-1" className=" border text-black border-gray-300 text-sm rounded-lg focus:outline-none block w-full ps-10 p-2.5 " placeholder="Enter Username" required />
                             </div>
                         </div>
                         {/* password Login FOrm  */}
                         <div>
-                            <label for="first_name" class="block mb-1 text-sm font-medium ">Password</label>
-                            <div class="relative mb-4">
-                                <div class="absolute inset-y-0 start-0 flex items-center ps-2 cursor-pointer" onClick={togglePassVisible}>
+                            <label for="first_name" className="block mb-1 text-sm font-medium ">Password</label>
+                            <div className="relative mb-4">
+                                <div className="absolute inset-y-0 start-0 flex items-center ps-2 cursor-pointer" onClick={togglePassVisible}>
                                     {passVisible ? <VisibilityIcon className="text-gray-500" /> : <VisibilityOffIcon className="text-gray-500" />}
                                 </div>
                                 <input type={passVisible ? 'text' : 'password'} onChange={(e)=>{onInputChange(e)}} name='password' id="input-group-1" className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none block w-full ps-10 p-2.5  " placeholder="Enter Password" required />

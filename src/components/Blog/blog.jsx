@@ -9,10 +9,10 @@ import './blog.css';
 
 
 const Blog = () => {
-    const [type,setType] = useState('All Latest Blog');
+    const [type,setType] = useState();
+    const [inputValue,setInputValue] = useState('');
     const [blog, setBlog] = useState([]);
     const navigate = useNavigate();
-    
 
     const Category = [
         { label: 'All Latest Blog' },
@@ -23,28 +23,42 @@ const Blog = () => {
         { label: "Entertainment and Media" },
         { label: 'Science and Nature' },
         { label: 'Health and Fitness' },
+        { label: 'Food and Cooking' },
     ];
 
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await getTypeBlog(type==='All Latest Blog'?'all':type);
-            if (response.status && response.status === 'success') {
-                setBlog(response.Blogs);
-                console.log(blog);
-            } else if (response.status && response.status === 'success') {
-                setBlog(response.Blogs);
+            console.log(type);
+            if(type!='All Latest Blog'){
+                const response = await getTypeBlog('all',inputValue);
+                if (response.status && response.status === 'success') {
+                    setBlog(response.Blogs);
+                } else if (response.status && response.status === 'success') {
+                    setBlog(response.Blogs);
+                } else{
+                    setBlog([]);
+                }
             } else{
-                setBlog([]);
-            }
+                const response = await getTypeBlog('all');
+                console.log(type==='All Latest Blog');
+                if (response.status && response.status === 'success') {
+                    setBlog(response.Blogs);
+                } else if (response.status && response.status === 'success') {
+                    setBlog(response.Blogs);
+                } else{
+                    setBlog([]);
+                }
+            }    
         }
-        console.log("reach blog");
         fetchData();
-    }, [type]);
+    }, [inputValue]);
 
     const onInputTypeChange = (event,value)=>{
         if(value){
             setType(value.label);
+        } else{
+            setType('All Latest Blog');
         }
     }
 
@@ -60,7 +74,7 @@ const Blog = () => {
             <div className="mt-[80px]">
                 <div className="flex justify-center">
                     <div className="w-[100%] md:w-auto flex justify-around gap-2 pl-[30px] pr-[30px] md:gap-[60px] flex-col md:flex-row ">
-                        <Autocomplete onChange={onInputTypeChange} value={type} options={Category} className="md:w-[400px] " renderInput={(params) => (<TextField {...params} label="Select a Category" />)} />
+                        <Autocomplete freeSolo inputValue={inputValue} onChange={onInputTypeChange} onInputChange={(event,newValue)=>{setInputValue(newValue);setType('')}} options={Category} className="md:w-[400px] " renderInput={(params) => (<TextField {...params} label="Select a Category" />)} />
                         <button onClick={navigateCreateBlog} className="cssbuttons-io pt-2 pb-2"> <span><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><IoCodeSlashSharp style={{fontSize:'25px'}}/></svg>Create</span></button>
                     </div>  
                 </div>

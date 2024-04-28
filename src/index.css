@@ -22,7 +22,7 @@ body{
 }
 
 ::selection{
-  background-color: grey;
+  background-color: rgba(100, 65, 0, 0.616);
 }
 .ql-toolbar button.octicon, .ql-toolbar button.fa {
   border: none;
@@ -40,10 +40,10 @@ body{
 }
 
 .ql-snow .ql-editor pre.ql-syntax {
-  background-color: #3d0d73;
+  background-color: #160736;
   color: white;
   font-weight: bold;
-  font-size:20px;
+  font-size:15px;
   overflow: visible;
 }
 

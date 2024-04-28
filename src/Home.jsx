@@ -5,6 +5,7 @@ import Intro from './components/Intro/intro';
 import SignIn from './components/signin/signin';
 import Blog from './components/Blog/blog';
 import CreateBlog from './components/createBlog/createBlog';
+import ReadBlog from './components/readBlog/ReadBlog';
 const PrivateRouteBlog = ()=>{
     return localStorage.getItem("userId") ?
     <>
@@ -34,6 +35,7 @@ const Home = ()=>{
                 </Route>
                 <Route element={<PrivateRouteBlog/>} >
                     <Route path='/blogs' element={<Blog/>} />
+                    <Route path='/blog/:blogId' element={<ReadBlog/>} />
                     <Route path='/createblog' element={<CreateBlog/>} />
                 </Route>
                 <Route path='*' element={<Navigate replace to="/intro"/>}  />

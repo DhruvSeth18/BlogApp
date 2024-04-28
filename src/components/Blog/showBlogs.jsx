@@ -29,13 +29,12 @@ const CardContainer = styled(Box)`
     }
 `;
 const ShowBlog = ({blog})=>{
-    console.log("Say hello from showBlog",blog);
     return (<>
         <div className="w-[100%] min-h-[500px] mt-[3rem] flex justify-center">
             <CardContainer  sx={{position:'relative',display:'grid',padding:'20px' }}>
                 {
-                    blog.map((item)=>(
-                        <BlogCard item={item}/>
+                    blog.map((item,index)=>(
+                        <BlogCard key={index} item={item}/>
                     ))
                 }
             </CardContainer>

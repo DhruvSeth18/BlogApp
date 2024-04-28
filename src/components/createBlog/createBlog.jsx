@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
@@ -17,7 +16,6 @@ import './createBlog.css';
 
 
 const Blog = {
-    image:'',
     title:'',
     data:'',
     category:'',
@@ -28,7 +26,7 @@ const CreateBlog = () => {
     const fileInputRef = useRef(null);
     const [selectedFile, setSelectedFile] = useState(null);
     const [createBlog,setCreateBlog] = useState(Blog);
-    const [imageUrl, setImageUrl] = useState("https://contenthub-static.grammarly.com/blog/wp-content/uploads/2017/11/how-to-write-a-blog-post.jpeg");
+    const [imageUrl, setImageUrl] = useState(Blog.image);
     const [imageFileUploadProgress,setImageFileUploadProgress] = useState(0);
     const [showProgress,setProgress] = useState(false);
     const navigate = useNavigate();
@@ -39,7 +37,6 @@ const CreateBlog = () => {
             [{ size: [] }],
             [{ font: [] }],
             [{ align: ["right", "center", "justify"] }],
-            [{ list: "ordered" }],
             ["code-block"],
             [{ color: ["red", "#785412","lime","#121481","#5BBCFF","#FF6500","#FFF455","#836FFF","#0CECDD"] }],
             [{ background: ["red", "#785412","lime","#121481","#5BBCFF","#FF6500","#FFF455","#836FFF","#0CECDD"] }]
@@ -54,6 +51,7 @@ const CreateBlog = () => {
         { label: "Entertainment and Media" },
         { label: 'Science and Nature' },
         { label: 'Health and Fitness' },
+        { label: 'Food and Cooking' },
     ];
     useEffect(()=>{
         if (!selectedFile) return;
@@ -147,7 +145,7 @@ const CreateBlog = () => {
             <div className=' mt-[60px]'>
                 <div className="flex justify-center pt-[20px]">
                     <div className="h-[300px] md:h-[320px] w-[90%] sm:w-[80%] lg:w-[60%] xl:w-[50%] relative">
-                        <img className={`w-[100%] h-[100%] opacity-80 ${showProgress && 'opacity-25'}`} src={imageUrl} alt="Blog Image" />
+                        <img className={`w-[100%] h-[100%] opacity-80 ${showProgress && 'opacity-25'}`} src={imageUrl || 'https://contenthub-static.grammarly.com/blog/wp-content/uploads/2017/11/how-to-write-a-blog-post.jpeg'} alt="Blog Image" />
                         {showProgress && <CircularProgressbar background backgroundPadding={6} styles={buildStyles({ backgroundColor: "black",textColor: "#fff",pathColor: "#fff",trailColor: "transparent"})} className='w-[80px] text-white absolute inset-y-0 left-1/2 top-1/3 transform -translate-x-1/2' value={imageFileUploadProgress} text={`${imageFileUploadProgress}%`} />}
                         <input type="file" ref={fileInputRef} style={{ display: 'none' }} accept=".jpg, .jpeg, .png" onChange={handleFileChange} />
                         <FaPlus  onClick={handleSpeedDialClick}  style={{ position: 'absolute', bottom: 16, right: 16,borderRadius:'50%',width:'50px',height:'50px',padding:'13px',color:'white',backgroundColor:'#5755FE',border:'2px solid white'}} />

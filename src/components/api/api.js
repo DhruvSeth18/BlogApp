@@ -86,24 +86,74 @@ export const createBlogRequest = async (data) => {
 }
 
 
-export const getTypeBlog = async (type) => {
+export const getTypeBlog = async (category,inputValue) => {
     try {
-        const response = await axios.get(`${url}/blogs/${type || 'all'}`, {
-            timeout: 4000,
-        });
-        if (response.status === 204) {
+        if(inputValue){
+            const response = await axios.get(`${url}/blogs/${category || 'all'}?input=${inputValue}`, {
+                timeout: 4000,
+            });
+            if (response.status === 204) {
+                return {
+                    status: 'empty',
+                    message: 'no data found'
+                }
+            }
             return {
-                status: 'fail',
-                message: 'no data found'
+                status: response.data.status,
+                Blogs: response.data.Blogs,
+                message: response.data.message
+            }
+        } else{
+            const response = await axios.get(`${url}/blogs/${category || 'all'}`, {
+                timeout: 4000,
+            });
+            if (response.status === 204) {
+                return {
+                    status: 'empty',
+                    message: 'no data found'
+                }
+            }
+            return {
+                status: response.data.status,
+                Blogs: response.data.Blogs,
+                message: response.data.message
+            }
+        }
+        
+    } catch (error) {
+        console.log("Error while getting all the Blog", error);
+        if (error.response?.status >= 400) {
+            return {
+                status: error.response.status,
+                message: error.response.message
             }
         }
         return {
-            status: response.data.status,
-            Blogs: response.data.Blogs,
-            message: response.data.message
+            message: "Internet is Slow try again"
         }
-    } catch (error) {
-        console.log("Error while getting all the Blog", error);
+    }
+}
+
+export const getSingleBlog = async (blogId)=>{
+    try{
+        const response = await axios.get(`${url}/blog/${blogId}`,{
+            headers: {
+                authorization: localStorage.getItem("token")
+            },
+            timeout: 4000,
+        })
+        if(response.status && response.status===200){
+            return {
+                status:response.data.status,
+                Blog:response.data.blog
+            }
+        } else if(response.status && response.status===204){
+            return {
+                status:'empty',
+                message:'No Data Found'
+            }
+        }
+    } catch(error){
         if (error.response?.status >= 400) {
             return {
                 status: error.response.status,
