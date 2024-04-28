@@ -44,12 +44,12 @@ const Navbar = () => {
                         <IconButton color="inherit" aria-label="open drawer" edge="start" onClick={handleDrawerToggle} sx={{ display: { sm: 'none' } ,position:'absolute',left:'5vh',scale:'1.4'}} >
                             <MenuIcon />
                         </IconButton>
-                        <div className='w-[50%] hidden sm:flex justify-around'>
+                        <div className='w-[55%] hidden sm:flex justify-around'>
                             <NavLink style={{fontSize:"20px"}} to={'/intro'}>Intro</NavLink>
                             <NavLink style={{fontSize:"20px"}} to={'/about'}>About</NavLink>
                             <NavLink style={{fontSize:"20px"}} to={'/contact'}>Contact</NavLink>
                             <NavLink style={{fontSize:"20px"}} to={'/service'}>Service</NavLink>
-                            {account && <NavLink style={{fontSize:"20px"}} to={'/blogs'}>Blog</NavLink>}
+                            {account && <NavLink style={{fontSize:"20px"}} to={'/blogs'}>Blogs</NavLink>}
                         </div>
                         <LoginButton/>
                     </EditToolbar>
@@ -57,7 +57,7 @@ const Navbar = () => {
                 <Box component="nav" sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 }}} aria-label="mailbox folders">
                     <Drawer variant="temporary" open={mobileOpen} onTransitionEnd={handleDrawerTransitionEnd} onClose={handleDrawerClose}
                         ModalProps={{keepMounted: true}}
-                        sx={{ display: { xs: 'block', sm: 'none' },'& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },}}>
+                        sx={{display: { xs: 'block', sm: 'none' },'& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth,backgroundColor: '#191919', },}}>
                     </Drawer>
                 </Box>
             </Box>

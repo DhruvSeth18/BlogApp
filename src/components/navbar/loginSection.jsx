@@ -50,8 +50,8 @@ const LoginButton = ()=>{
                 account?
                 <>
                     <div className='absolute right-[40px] flex gap-2 cursor-pointer' onClick={handleClick}>
-                        <div className=' p-1 overflow-hidden'>
-                            <img className='w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500' src={localStorage.getItem('image') || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBQLZBLliHC0oAh1vMfI7Z5IzTV8_RlzVeh6QqSzs_SCqn5a0rkuXEoVsuDPNxMntF0vc&usqp=CAU'}/>
+                        <div className=' overflow-hidden'>
+                            <img className='w-10 h-10 rounded-full ring-gray-300 dark:ring-gray-500' src={localStorage.getItem('image') || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBQLZBLliHC0oAh1vMfI7Z5IzTV8_RlzVeh6QqSzs_SCqn5a0rkuXEoVsuDPNxMntF0vc&usqp=CAU'}/>
                         </div>
                         <StyledMenu sx={{display:'flex',flexDirection:'column'}} id="basic-menu" MenuListProps={{ 'aria-labelledby': 'basic-button'}} anchorEl={anchorEl} open={open} onClose={handleClose} >
                             <Button  style={{width:'100%',color:'white'}} variant="text">Blog</Button>

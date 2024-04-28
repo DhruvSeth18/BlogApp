@@ -4,6 +4,7 @@ import {BrowserRouter,Routes,Route,Outlet,Navigate} from 'react-router-dom';
 import Intro from './components/Intro/intro';
 import SignIn from './components/signin/signin';
 import Blog from './components/Blog/blog';
+import CreateBlog from './components/createBlog/createBlog';
 const PrivateRouteBlog = ()=>{
     return localStorage.getItem("userId") ?
     <>
@@ -33,6 +34,7 @@ const Home = ()=>{
                 </Route>
                 <Route element={<PrivateRouteBlog/>} >
                     <Route path='/blogs' element={<Blog/>} />
+                    <Route path='/createblog' element={<CreateBlog/>} />
                 </Route>
                 <Route path='*' element={<Navigate replace to="/intro"/>}  />
             </Routes>
