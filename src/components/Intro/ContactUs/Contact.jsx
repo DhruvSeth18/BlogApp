@@ -9,7 +9,10 @@ import './contact.css';
 import Map from './Map';
 const Contact = () => {
   return (
-    <>
+    <>  
+        <section className="about-home">
+            <h2>Contact Us</h2>
+        </section>
         <hr/>
         <section className="contact">
             <div className="get-in">

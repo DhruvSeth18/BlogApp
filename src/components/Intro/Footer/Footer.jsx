@@ -13,7 +13,7 @@ const Footer = () => {
                 <div className="footer-logo">
                     <a className="footer-logo-link" href="#">
                     <span className="hidden-link-text">LOGO</span>
-                    <h1>LOGO</h1>
+                    {/* <h1>LOGO</h1> */}
                     </a>
                 </div>
                 <div className="footer-menu">
@@ -126,7 +126,7 @@ const Footer = () => {
             <div className="footer-copyright">
                 <div className="footer-copyright-wrapper">
                 <p className="footer-copyright-text">
-                    <a className="footer-copyright-link" href="#" target="_self"> ©2020. | Designed By: Pooja Nahelia. | All rights reserved. </a>
+                    <a className="footer-copyright-link" href="#" target="_self"> ©2024. | Designed By: Deepankar Garg. | All rights reserved. </a>
                 </p>
                 </div>
             </div>

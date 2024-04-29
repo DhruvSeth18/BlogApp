@@ -1,3 +1,58 @@
+/* === removing default button style ===*/
+.button {
+    margin: 0;
+    height: auto;
+    background: transparent;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}
+
+/* button styling */
+.button {
+    --border-right: 6px;
+    --text-stroke-color: rgba(255,255,255,0.6);
+    --animation-color: #37FF8B;
+    /* letter-spacing: 3px; */
+    text-decoration: none;
+    font-family: "Arial";
+    position: relative;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--text-stroke-color);
+}
+/* this is the text, when you hover on button */
+.hover-text {
+    position: absolute;
+    box-sizing: border-box;
+    content: attr(data-text);
+    color: var(--animation-color);
+    width: 0%;
+    inset: 0;
+    text-align: left;
+    border-right: var(--border-right) solid var(--animation-color);
+    overflow: hidden;
+    transition: 0.5s;
+    -webkit-text-stroke: 1px var(--animation-color);
+    animation: hoverAnimation 2.5s infinite alternate;
+}
+/* frame animation  */
+@keyframes hoverAnimation {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+        filter: drop-shadow(0 0 23px var(--animation-color));
+    }
+}
+/* hover */
+/* .button:hover .hover-text {
+    width: 100%;
+    filter: drop-shadow(0 0 23px var(--animation-color))
+} */
+
+
 .biggy{
     background: rgba(0,0,0,1);
     background: -moz-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(31,31,31,1) 100%);
@@ -24,6 +79,11 @@
     color: white;
     padding: 0.5rem 0;
     line-height: 5.5rem;
+}
+.stroke_text{
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
 }
 .left p{
     font-size: 1.25rem/* 20px */;
@@ -109,6 +169,15 @@
         height: 30vh;
         width: 60vw;
     }
+    .button { 
+         letter-spacing: 1.5px;
+    }
+    .button .hover-text{
+        width: 100%;
+        border: none;
+        animation: none;
+        filter: drop-shadow(0 0 23px var(--animation-color));
+    }
     .biggy {
         padding: 0rem 0 0 0 ;
         justify-content:center;
@@ -134,7 +203,7 @@
         line-height: 4rem;
         text-align: center;
     }
-    .left span{
+    .left .span{
         display: flex;
         justify-content: center;
         padding: 1rem 0;
@@ -150,6 +219,9 @@
         color: white;
         padding: 0.5rem 0;
         line-height: 5.5rem;
+    }
+    .left .button{
+        font-size: 3.3rem;
     }
     .tohid{
         width: 40% !important;

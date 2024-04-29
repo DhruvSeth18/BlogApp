@@ -179,6 +179,8 @@ text-decoration: none;
 
 .footer-social-icon-svg {
     display: block;
+    height: 3vh;
+    width: 3vh;
 }
 
 .footer-social-icon-path {
