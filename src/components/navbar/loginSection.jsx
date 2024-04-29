@@ -49,16 +49,11 @@ const LoginButton = () => {
             {
                 account ?
                     <>
-                        <div className='absolute right-[40px] top-3 flex cursor-pointer' >
-                            <label className="switch-button scale-50 relative bottom-[7px]" for="switch">
-                                <div className="switch-outer">
-                                    <input id="switch" type="checkbox" />
-                                    <div className="button">
-                                        <span className="button-toggle"></span>
-                                        <span className="button-indicator"></span>
-                                    </div>
-                                </div>
-                            </label>
+                        <div className='absolute right-[40px] top-3 gap-2 flex cursor-pointer' >
+                            <div className="toggle scale-75">
+                                <input type="checkbox" />
+                                <label></label>
+                            </div>
                             <div className='onClick={handleClick}'>
                                 <img onClick={handleClick} className='w-[45px] h-[45px] relative rounded-full ring-gray-300 dark:ring-gray-500' src={localStorage.getItem('userImage') || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBQLZBLliHC0oAh1vMfI7Z5IzTV8_RlzVeh6QqSzs_SCqn5a0rkuXEoVsuDPNxMntF0vc&usqp=CAU'} />
                             </div>

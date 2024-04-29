@@ -72,7 +72,7 @@ const Signin=()=>{
                                 <div className="absolute inset-y-0 start-0 flex items-center ps-2 cursor-pointer">
                                     <FaUser className="text-gray-500" />
                                 </div>
-                                <input type="text" value={signdetail.username} onChange={(e)=>{onInputChange(e)}} name='username' id="input-group-1" className=" border border-gray-300 text-sm rounded-lg focus:outline-none block w-full ps-10 p-2.5 " placeholder="Enter Username" required />
+                                <input type="text" value={signdetail.username} onChange={(e)=>{onInputChange(e)}} name='username' id="input-group-1" className=" border text-black border-gray-300 text-sm rounded-lg focus:outline-none block w-full ps-10 p-2.5 " placeholder="Enter Username" required />
                             </div>
                         </div>
                         {/* Email Login Form  */}
@@ -81,7 +81,7 @@ const Signin=()=>{
                                 <div className="absolute inset-y-0 start-0 flex items-center ps-2 cursor-pointer">
                                     <MailIcon className="text-gray-500" />
                                 </div>
-                                <input type="email" value={signdetail.email} onChange={(e)=>{onInputChange(e)}} name='email' id="input-group-1" className=" border border-gray-300 text-sm rounded-lg focus:outline-none block w-full ps-10 p-2.5 " placeholder="Enter Email" required />
+                                <input type="email" value={signdetail.email} onChange={(e)=>{onInputChange(e)}} name='email' id="input-group-1" className=" border text-black border-gray-300 text-sm rounded-lg focus:outline-none block w-full ps-10 p-2.5 " placeholder="Enter Email" required />
                             </div>
                         </div>
                         {/* password Login FOrm  */}
@@ -104,7 +104,7 @@ const Signin=()=>{
                         </div>
                         {/* Login with Google    */}
                         <div className="flex w-full justify-center ">
-                            <button className="w-full h-[35px] border-2 border-black justify-center bg-white flex gap-4 rounded-md">
+                            <button className="w-full h-[35px] border-2 border-black justify-center text-black bg-white flex gap-4 rounded-md">
                                 <img className=" h-full " src={Google} alt="google image" />
                                 <p className="flex h-full items-center font-bold">Sign in with Google</p>
                             </button>

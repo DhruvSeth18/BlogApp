@@ -131,7 +131,7 @@ const CreateBlog = () => {
                 position:'top-center'
             })
             setTimeout(()=>{
-                navigate('/blog');
+                navigate('/blogs');
             },1000)
         } else if(response.status && response.status==='fail'){
             toast.error(response.message,{

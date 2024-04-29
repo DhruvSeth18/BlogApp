@@ -165,3 +165,31 @@ export const getSingleBlog = async (blogId)=>{
         }
     }
 }
+
+export const checkLike = async (blogId) => {
+    try{
+        const response = axios.get(`$${url}/liked/${blogId}`,{userId:localStorage.getItem('userId')},{
+            headers: {
+                authorization: localStorage.getItem("token")
+            },
+            timeout: 4000,
+        })
+        return {
+            status:response.data.status
+        }
+    } catch(error){
+        if (error.response?.status >= 400) {
+            return {
+                status: error.response.status,
+                message: error.response.message
+            }
+        }
+        return {
+            message: "Internet is Slow try again"
+        }
+    }
+}
+
+const LikeBlog = ()=>{
+    
+}

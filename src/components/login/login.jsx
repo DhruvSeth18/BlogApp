@@ -104,7 +104,7 @@ const Loginuser = async ()=>{
                         </div>
                         {/* Login with Google    */}
                         <div className="flex w-full justify-center">
-                            <button className="w-full h-[35px] border-2 border-black justify-center bg-white flex gap-4 rounded-md">
+                            <button className="w-full h-[35px] border-2 text-black border-black justify-center bg-white flex gap-4 rounded-md">
                                 <img className=" h-full " src={Google} alt="google image" />
                                 <p className="flex h-full items-center font-bold ">Login with Google</p>
                             </button>

@@ -1,16 +1,26 @@
 import { Card } from '@mui/material';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FaShareAlt } from "react-icons/fa";
 import { AiFillHeart } from "react-icons/ai";
 import { AiOutlineHeart } from "react-icons/ai";
 import { useNavigate } from 'react-router-dom';
 import { IoBookmark } from "react-icons/io5";
 import { IoBookmarkOutline } from "react-icons/io5";
-
+import { checkLike } from '../api/api';
 const Blogcard = ({ item }) => {
     const [like, setLike] = useState(false);
     const [share, setShare] = useState(false);
     const [bookmark, setBookMark] = useState(false);
+    useEffect(()=>{
+        const checkForLike =async  ()=>{
+            const response = await checkLike(item._id);
+            if(response.status && response.status==='success'){
+                setLike(true);
+            }
+        }
+        checkForLike();
+    },[])
+    
     const navigate = useNavigate();
     const openBlogPage= ()=>{
         navigate(`/blog/${item._id}`);
