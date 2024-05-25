@@ -1,5 +1,5 @@
 import axios from 'axios';
-const url = 'http://localhost:8000';
+const url = 'https://blog-app-backend-fawn.vercel.app';
 
 export const LoginUser = async (data) => {
     try {
