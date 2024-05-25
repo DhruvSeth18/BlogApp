@@ -1,5 +1,5 @@
 /* === removing default button style ===*/
-.button {
+.buttonTexture {
     margin: 0;
     height: auto;
     background: transparent;
@@ -9,7 +9,7 @@
 }
 
 /* button styling */
-.button {
+.buttonTexture {
     --border-right: 6px;
     --text-stroke-color: rgba(255,255,255,0.6);
     --animation-color: #37FF8B;
@@ -169,10 +169,10 @@
         height: 30vh;
         width: 60vw;
     }
-    .button { 
+    .buttonTexture { 
          letter-spacing: 1.5px;
     }
-    .button .hover-text{
+    .buttonTexture .hover-text{
         width: 100%;
         border: none;
         animation: none;

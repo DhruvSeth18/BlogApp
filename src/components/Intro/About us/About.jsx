@@ -1,28 +1,33 @@
 import React from 'react'
-import deepankar from './images/Deep1.jpeg';
-import deepankar2 from './images/Deep2.jpeg';
+import deepankar2 from './images/Deep1.jpeg';
+import Dhruv from './images/Dhruv.png';
+import Dev from './images/Dev.jpg';
+import Dishant from './images/Dishant.png';
 import './about.css';
 import Team from './Team';
 import Contact from '../ContactUs/Contact';
-import Aboutcom from './Aboutcom.jsx';
 import Footer from '../Footer/Footer.jsx';
+import Service from '../service/service.jsx';
 const About = () => {
   return (
     <>
         <section className="about-home">
+            <h2>Services</h2>
+        </section>
+        <Service/>
+        <section className="about-home">
             <h2>About Us</h2>
         </section>
         <section id="experts">
-            <h1>Community Experts</h1>
+            <h1 style={{color:'white'}}>Community Experts</h1>
             <p>Replenish man have thing gathering lights yieding shall you</p>
             <div className="expert-box">
-                <Team imgsrc={deepankar2} name={"Dhruv Seth"} help={"Full-Stack Developer"}/>
-                <Team imgsrc={deepankar} name={"Deepankar Garg"} help={"Frontend Developer"}/>
-                <Team imgsrc={deepankar} name={"Dev Bhatia"} help={"DSA & Frontend"}/>
-                <Team imgsrc={deepankar2} name={"Dishant"} help={"Frontend"}/>
+                <Team imgsrc={Dhruv} name={"Dhruv Seth"} help={"Full-Stack Developer"}/>
+                <Team imgsrc={deepankar2} name={"Deepankar Garg"} help={"Frontend Developer"}/>
+                <Team imgsrc={Dev} name={"Dev Bhatia"} help={"DSA & Frontend"}/>
+                <Team imgsrc={Dishant} name={"Dishant"} help={"Frontend"}/>
             </div>
         </section>
-        <Aboutcom/>
         <Contact/>
         <Footer/>
     </>

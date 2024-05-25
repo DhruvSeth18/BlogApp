@@ -156,7 +156,7 @@ const CreateBlog = () => {
                         <div className='flex gap-4 flex-col lg:flex-row'>
                             <div className='flex w-[100%] gap-3'>
                                 <Autocomplete value={createBlog.category} className="flex-1" onChange={handleCategoryChange} options={Category}  renderInput={(params) => (<TextField {...params} label="Select a Category" />)} />
-                                <button onClick={publish} className="publish flex-4"> Publish</button>
+                                <button onClick={publish} className="publish flex-4 "> Publish</button>
                             </div>
                         </div>
                         <input className="text-black text-[22px] border border-gray-300 text-sm rounded-lg focus:outline-none block w-full ps-4 p-3.5" name='title' onChange={(e)=>onChangeHandle(e)}  placeholder="Enter Title" required />

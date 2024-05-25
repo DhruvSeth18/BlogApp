@@ -22,7 +22,7 @@ body{
 }
 
 ::selection{
-  background-color: rgba(100, 65, 0, 0.616);
+  background-color: grey;
 }
 .ql-toolbar button.octicon, .ql-toolbar button.fa {
   border: none;

@@ -14,7 +14,7 @@ const Contact = () => {
             <h2>Contact Us</h2>
         </section>
         <hr/>
-        <section className="contact">
+        <section className="contact bg-black text-white">
             <div className="get-in">
                 <h2>Get in touch</h2>
                 <p>Looking for help? Fill the form and start a new adventure.</p>

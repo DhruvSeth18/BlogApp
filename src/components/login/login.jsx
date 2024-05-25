@@ -9,7 +9,6 @@ import { DataContext } from '../context/dataContext.jsx';
 import {useNavigate} from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; 
-
 import './login.css';
 
 
@@ -52,10 +51,13 @@ const Loginuser = async ()=>{
             setTimeout(()=>{
                 console.log("Navigation to intro");
                 setAccount(true);
+                console.log(response);
+                localStorage.setItem('admin',response.admin);
                 localStorage.setItem('token',response.token);
                 localStorage.setItem('userId',response.id);
                 localStorage.setItem('userImage',response.image);
                 localStorage.setItem('userEmail',response.email);
+                localStorage.setItem('username',response.username);
                 navigate('/intro');
             },2000)
             console.log("Login Successfull");

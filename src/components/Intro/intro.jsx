@@ -7,9 +7,9 @@ const Intro = ()=>{
         <div className="biggy">
             <div className="left">
                 <h1>
-                    <button class="button" data-text="Awesome">
-                        <span class="actual-text">&nbsp;Quill&nbsp;-&nbsp;Quest,&nbsp;</span>
-                        <span aria-hidden="true" class="hover-text">&nbsp;Quill&nbsp;-&nbsp;Quest,&nbsp;</span>
+                    <button className="buttonTexture" data-text="Awesome">
+                        <span className="actual-text">&nbsp;Quill&nbsp;-&nbsp;Quest,&nbsp;</span>
+                        <span aria-hidden="true" className="hover-text">&nbsp;Quill&nbsp;-&nbsp;Quest,&nbsp;</span>
                     </button>
                 <br/> Your Way</h1>
                 <span className='span'><img src={img} alt="" className='tor hidden'/></span>

@@ -1,4 +1,4 @@
-
+"use client"
 import BlogCard from "./card";
 import { Box,styled } from "@mui/material";
 const CardContainer = styled(Box)`

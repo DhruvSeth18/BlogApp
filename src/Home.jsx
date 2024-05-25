@@ -5,6 +5,7 @@ import Intro from './components/Intro/intro';
 import SignIn from './components/signin/signin';
 import Blog from './components/Blog/blog';
 import CreateBlog from './components/createBlog/createBlog';
+import EditBlog from './components/editBlog/editBlog';
 import ReadBlog from './components/readBlog/ReadBlog';
 import User from './components/User/user';
 const PrivateRouteBlog = ()=>{
@@ -38,6 +39,7 @@ const Home = ()=>{
                     <Route path='/blogs' element={<Blog/>} />
                     <Route path='/blog/:blogId' element={<ReadBlog/>} />
                     <Route path='/createblog' element={<CreateBlog/>} />
+                    <Route path='/editblog/:blogId' element={<EditBlog/>} />
                     <Route path='/user' element={<User/>} />
                 </Route>
                 <Route path='*' element={<Navigate replace to="/intro"/>}  />

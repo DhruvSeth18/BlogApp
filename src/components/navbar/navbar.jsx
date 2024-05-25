@@ -15,7 +15,24 @@ const EditToolbar = styled(Toolbar)`
     display: flex;
     justify-content: center;
 `;
-
+const ScrollTrack = styled(Box)`
+    height:4.5px;
+    position:fixed;
+    left:0px;
+    width:100%;
+    transform-origin:left;
+    scale: 0 1;
+    background-color:white;
+    animation:scroll-watch linear;
+    animation-timeline:scroll();
+    @keyframes scroll-watch {
+        to{
+            scale:1 1;
+        }
+    }
+    background: rgb(174,58,180);
+    background: linear-gradient(90deg, rgba(174,58,180,1) 0%, rgba(253,64,29,1) 61%, rgba(252,176,69,1) 100%);
+`
 
 const Navbar = () => {
     const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -44,11 +61,10 @@ const Navbar = () => {
                         <IconButton color="inherit" aria-label="open drawer" edge="start" onClick={handleDrawerToggle} sx={{ display: { sm: 'none' } ,position:'absolute',left:'5vh',scale:'1.4'}} >
                             <MenuIcon />
                         </IconButton>
-                        <div className='w-[55%] hidden sm:flex justify-around'>
+                        <div className='w-[44%] hidden sm:flex justify-around'>
                             <NavLink style={{fontSize:"20px"}} to={'/intro'}>Intro</NavLink>
                             <NavLink style={{fontSize:"20px"}} to={'/about'}>About</NavLink>
                             <NavLink style={{fontSize:"20px"}} to={'/contact'}>Contact</NavLink>
-                            <NavLink style={{fontSize:"20px"}} to={'/service'}>Service</NavLink>
                             {account && <NavLink style={{fontSize:"20px"}} to={'/blogs'}>Blogs</NavLink>}
                         </div>
                         <LoginButton/>
@@ -61,6 +77,7 @@ const Navbar = () => {
                     </Drawer>
                 </Box>
             </Box>
+            <ScrollTrack sx={{ top: { sm: '64px', xs: '56px' } ,zIndex:'3'}}></ScrollTrack>
         </>
     );
 }
