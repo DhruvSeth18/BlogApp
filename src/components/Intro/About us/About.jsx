@@ -7,14 +7,9 @@ import './about.css';
 import Team from './Team';
 import Contact from '../ContactUs/Contact';
 import Footer from '../Footer/Footer.jsx';
-import Service from '../service/service.jsx';
 const About = () => {
   return (
     <>
-        <section className="about-home">
-            <h2>Services</h2>
-        </section>
-        <Service/>
         <section className="about-home">
             <h2>About Us</h2>
         </section>
